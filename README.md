@@ -113,7 +113,7 @@ Aurora Global Databaseは専用の高速ネットワークを用いたリージ�
 
 ### Aurora MySQL
 
-標準ではマルチライター昨日は提供されていない。
+標準ではマルチライター機能は提供されていない。
 
 ## Amazon RDS for MySQL
 
@@ -142,6 +142,12 @@ Edge-Optimizedエンドポイントに切り替えると、自動で前段にClo
 ## Lambda
 
 実行環境はリクエスト後でも一定時間アイドル保持され、次回呼び出し時に同じコンテナが再利用される。
+
+## AWS Migration Hub
+
+Agentless Discovery Connector
+Application Discovery Service(ADS)
+AWS Systems ManagrInventory
 
 ## その他
 
