@@ -20,6 +20,16 @@
 
 Pre-Signed URLは署名付きリクエストとして、IAM認証情報を含むので、パブリックACLを必要としない認可済みアクセスとなる。
 
+### Replication Time Control（RTC）
+
+最大15分以内の配信をSLAとしている。
+追加料金が必要。
+
+### S3 Batch Replication
+
+大量の既存オブジェクトを一括で複製する。
+ジョブは15分～数時間単位で開始される。
+
 ## System Manager Session Manager
 
 HTTPS通信を行う
@@ -148,6 +158,57 @@ Edge-Optimizedエンドポイントに切り替えると、自動で前段にClo
 Agentless Discovery Connector
 Application Discovery Service(ADS)
 AWS Systems ManagrInventory
+
+## Application Migration Service
+
+既存サーバに小さなエージェントを入れるだけでブロックレベルの継続レプリケーションを行えるフルマネージドサービス。
+マイグレーションハブはダッシュボード。
+
+## EC2
+
+### EC2 Image Builder
+
+AMIの作成、テスト、保守の一連のパイプラインをフルマネージドで提供。
+ここで作成したAMIをService Catalogに「登録すれば権限付与だけで組織内のアカウントが参照可能
+
+## Route53
+
+### Latencyベースのルーティング
+
+クライアントのDNSリゾルバから見た最小レイテンシーのリージョンを自動的に選択する。
+
+### Failoverルーティング
+
+プライマリが落ちたときのみセカンダリに切り替える。
+
+### Geoproximity
+
+ユーザの地理的場所と指定シェイプの重なり具合でルーティングを決める機能。
+
+### Evaluate Target Health
+
+有効にするとALB障害時に自動フェイルオーバーが実施される。
+
+## Cloudformation
+
+### Cloudformation StackSets
+
+複数のアカウント、リージョンのスタックを1度のオペレーションで作成、更新、削除できるサービス。
+リージョン間複製機能もある。
+
+#### サービス管理型
+
+OUターゲットで使用すると、OUに紐づくアカウントが増減しても自動的にスタックが展開・更新される。
+管理ロール・実行ロールが自動で作成される。
+
+#### 自己管理型
+
+各ターゲットアカウントに管理ロールと実行ロールを手動で用意する必要がある。
+
+### クロススタック参照
+
+他のスタックで出力した情報を別のスタックで取得させる。
+同一リージョン内でしか利用できない。
 
 ## その他
 
