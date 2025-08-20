@@ -125,15 +125,25 @@ Aurora Global Databaseは専用の高速ネットワークを用いたリージ�
 
 標準ではマルチライター機能は提供されていない。
 
-## Amazon RDS for MySQL
+## RDS
+
+### Amazon RDS for MySQL
 
 クロスリージョンリードレプリカは非同期レプリケーションなので、レプリケーションラグが数十秒～数分になるケースもある。
 定期スナップショットは通常、5分～24時間間隔で取得される。
 スナップショットからのリストアは数十分～数時間を要する。
 
-## Amazon RDS Proxy
+### Amazon RDS Proxy
 
 データベースの前段で接続プールを維持し、同時実行が急増した場合でも新規TCP/SSLハンドシェイクを削減する。
+
+### RDS Enhanced Monitoring
+
+最短1秒間隔でOSメトリクスをCloudWatchに送信できる。
+
+### RDS Performance Insights
+
+DBLoad等のデータベース内部指標をリアルタイムに可視化できる。
 
 ## Amazon API Gateway
 
@@ -156,13 +166,23 @@ Edge-Optimizedエンドポイントに切り替えると、自動で前段にClo
 ## AWS Migration Hub
 
 Agentless Discovery Connector
-Application Discovery Service(ADS)
 AWS Systems ManagrInventory
+
+## Application Discovery Service(ADS)
+
+エージェントをインストールすることで、OS種別、CPU、メモリなど、移行計画に必要な詳細メタデータを1秒単位で収集する。
+取得したデータはMigration Hubに統合され、TCO資産やR7分析レポートを自動的に生成できる。
 
 ## Application Migration Service
 
 既存サーバに小さなエージェントを入れるだけでブロックレベルの継続レプリケーションを行えるフルマネージドサービス。
+レプリケーション対象ディスクやネットワーク設定を確認できる。
+レプリケーション後の移行カットオーバーに最適化されたサービス。
 マイグレーションハブはダッシュボード。
+
+## Server Migration Service(SMS)
+
+SMSコネクタはVMイメージのレプリケーションが主な目的で、取得できるメトリクスはレプリケーションに必要な最低限の情報のみ。
 
 ## EC2
 
@@ -209,6 +229,45 @@ OUターゲットで使用すると、OUに紐づくアカウントが増減し�
 
 他のスタックで出力した情報を別のスタックで取得させる。
 同一リージョン内でしか利用できない。
+
+## AWS Transfer Family
+
+マネージドSFTPサービスでコントロールプレーンもリージョン内のデータプレーンも複数AZに分散される。
+
+## AWS Storage Gateway
+
+### File Gatewav
+
+プロトコルはSMB/NFS
+
+## AWS CDK
+
+コードでクラウドインフラストラクチャを定義し、 AWS CloudFormation を通じてプロビジョニングするためのオープンソースのソフトウェア開発フレームワーク。
+
+## AWS AppSync
+
+マネージドでスケーラブルなGrphQLサービスで、WebSocketベースのSubscription（Pub/Sub）機能を提供する。
+
+## AWS Migration Portfolio Assessment(MPA)
+
+Excel/CSVなどのテンプレート入力やADSなど他ツールからのデータ取り込みを前提とする「コスト試算ツール」
+
+## Amazon ElasticCache
+
+### Amazon ElasticCache for Redis
+
+メモリ内データストアで、キャッシュ用途に特化したサービス。
+インメモリであるので、Webサーバ層をステートレスに保ちつつ、高速にセッションを共有できる。
+
+### Amazon ElasticCache for Mencached
+
+シンプルでスケールアウトしやすい一方、ネイティブなレプリケーションや自動フェイルオーバー機能はない。
+
+## AWS Resource Access Manager(RAM)
+
+同一組織内の複数アカウントに対して、VPCサブネットをネイティブに共有できるサービス。
+VPC全体を共有対象にはできない。
+共有されたサブネットにワークロードアカウントからENIを作成することで、各アカウントのEC2インスタンスをネットワーク専用アカウントのVPC内に配置できる。
 
 ## その他
 
