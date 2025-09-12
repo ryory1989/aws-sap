@@ -2,8 +2,8 @@
 
 ## S3
 
-| | 取り出し |
-| -- |
+| 種類 | 取り出し |
+| -- | -- |
 | Standard IA | | 
 | Glacier Deep Archive | 12H以上 | 
 | Glacier Flexible Retrieval | 3~5H | 
