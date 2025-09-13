@@ -2,11 +2,14 @@
 
 ## S3
 
-| 種類 | 取り出し |
-| -- | -- |
-| Standard IA | | 
-| Glacier Deep Archive | 12H以上 | 
-| Glacier Flexible Retrieval | 3~5H | 
+### Glacier
+
+| 種類 | 取り出し | コスト |
+| -- | -- | -- |
+| Glacier Instant Retrieval | ms | 高 |
+| Glacier Flexible Retrieval | 3~5H | 中 |
+| Glacier Deep Archive | 12H以上 | 低 |
+
 
 ### Inteligent-Tiering
 
@@ -345,9 +348,19 @@ OUターゲットで使用すると、OUに紐づくアカウントが増減し�
 
 ## AWS Storage Gateway
 
-### File Gatewav
+### File Gateway
 
-プロトコルはSMB/NFS
+プロトコルはSMB/NFS。
+オンプレミスのSMB共有をそのままクラウド側のS3にマッピングできる。
+既存のWindowsファイルサーバーとの親和性が高い。
+
+### Volume Gateway
+
+ブロックストレージ（iSCSI）提供が目的。
+
+### Tape Gateway
+
+既存のテープバックアップワークフローをクラウドに移行したい場合に有効。
 
 ## AWS CDK
 
@@ -409,6 +422,12 @@ AWSが継続的に更新している基既知の悪性IPアドレスを自動参
 ### オリジンアクセスアイデンティティ（OAI）
 
 S3バケットポリシーに明示的に許可を与えることでS3オブジェクトを取得する。
+
+## IAM
+
+### externalID
+
+自分のアカウントの IAM ロールを他のアカウントから AssumeRole する際に指定できる条件キーのひとつ。
 
 ## その他
 
