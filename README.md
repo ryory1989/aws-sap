@@ -2,15 +2,6 @@
 
 ## S3
 
-### Glacier
-
-| 種類 | 取り出し | コスト |
-| -- | -- | -- |
-| Glacier Instant Retrieval | ms | 高 |
-| Glacier Flexible Retrieval | 3~5H | 中 |
-| Glacier Deep Archive | 12H以上 | 低 |
-
-
 ### Inteligent-Tiering
 
 アクセス頻度に応じて自動でデータを階層化し、最初の48時間の高トラフィックはStandard tierが処理するため、パフォーマンスを確保できる
@@ -19,6 +10,12 @@
 ### Glacier
 
 リストアには数分～数時間かかる
+
+| 種類 | 取り出し | コスト |
+| -- | -- | -- |
+| Glacier Instant Retrieval | ms | 高 |
+| Glacier Flexible Retrieval | 3~5H | 中 |
+| Glacier Deep Archive | 12H以上 | 低 |
 
 ### Block Public Access
 
@@ -43,6 +40,16 @@ Pre-Signed URLは署名付きリクエストとして、IAM認証情報を含む
 
 S3のデータへのアクセス者がコストを支払う
 これが有効なバケットは、アクセス時に`x-amz-request-payer`ヘッダを付与しない限り、403エラーが返る。
+
+### Object Look
+
+#### コンプライアンスモード
+
+AWSアカウントのルートユーザでも保持期間満了前に削除や上書きができない
+
+#### ガバナンスモード
+
+管理者特権による削除解除が可能
 
 ## System Manager Session Manager
 
