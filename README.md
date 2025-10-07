@@ -198,6 +198,7 @@ Aurora Global Databaseは専用の高速ネットワークを用いたリージ�
 ### Amazon RDS Proxy
 
 データベースの前段で接続プールを維持し、同時実行が急増した場合でも新規TCP/SSLハンドシェイクを削減する。
+フェイルオーバー時に既存コネクションを自動で再接続させる。
 
 ### RDS Enhanced Monitoring
 
