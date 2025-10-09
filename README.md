@@ -5,7 +5,9 @@
 ### Inteligent-Tiering
 
 アクセス頻度に応じて自動でデータを階層化し、最初の48時間の高トラフィックはStandard tierが処理するため、パフォーマンスを確保できる
-アクセスが減った際はArchive Instant Access tierへ無停止で移行する
+アクセスが減った際はArchive Instant Access tierへ無停止で移行する。
+`Frequent`と`Infrequent`の2つの層があり、最初の30日間は`Frequent`扱いとなるため、Stabdardと比べてコストメリットがない。
+モニタリングと自動遷移のコストがオブジェクト数・サイズに比例する。
 
 ### Glacier
 
@@ -15,7 +17,9 @@
 | -- | -- | -- |
 | Glacier Instant Retrieval | ms | 高 |
 | Glacier Flexible Retrieval | 3~5H | 中 |
+| Glacier Flexible Retrieval(Expedited) | 1~5m | |
 | Glacier Deep Archive | 12H以上 | 低 |
+| Glacier Deep Archive(Bulk) | 最大48H | |
 
 ### Block Public Access
 
@@ -50,6 +54,10 @@ AWSアカウントのルートユーザでも保持期間満了前に削除や�
 #### ガバナンスモード
 
 管理者特権による削除解除が可能
+
+### S3 Transfer Acceleration(TA)
+
+AWSのグローバルエッジネットワークを利用して転送経路を最適化し、地理的に離れたクライアントとバケット間のRTT（Round Trip Time）を大幅に短縮する。
 
 ## System Manager Session Manager
 
@@ -170,6 +178,7 @@ HTTP/HTTPS専用
 ## Amazon Aurora
 
 Aurora Global Databaseは専用の高速ネットワークを用いたリージョン間レプリケーションを行い、通常1秒未満のレイテンシーでデータを複製する。（RPO<=1s、RTO1分未満）
+リーダーは複数水平展開可能でライターは単一ノード。
 
 ### Aurora MySQL
 
