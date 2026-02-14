@@ -305,7 +305,7 @@ API Gatewayに対して特定のアクセス権限（例：特定のIPアドレ�
 
 同時実行数の確保と上限を同時に設定する仕組み
 
-## AWS Migration Hub
+## AWS  Hub
 
 複数の移行ツールを横断し、単一のダッシュボードでアプリケーション単位の可視化を実現する。
 
@@ -316,6 +316,10 @@ AWS Systems ManagrInventory
 
 エージェントをインストールすることで、OS種別、CPU、メモリなど、移行計画に必要な詳細メタデータを1秒単位で収集する。
 取得したデータはMigration Hubに統合され、TCO資産やR7分析レポートを自動的に生成できる。
+
+### Agentless Collector
+
+VMware vCenter環境を対象としており、エージェントをインストールせずにインベントリや基本的なパフォーマンスデータを収集する。
 
 ## Application Migration Service
 
@@ -342,6 +346,10 @@ CDCはいつから変更を取り込むかという開始点が必要で、初�
 
 異なるタイプのDBを自動で変換し、移行するためのツール
 オフラインで動作する
+
+## Migration Evaluator
+
+オンプレミス環境のAWSへの移行における TCO (総所有コスト) 評価とコストモデリングに焦点を当てたサービス。
 
 ## AWS Cloud Adoptiin Readiness Tool
 
